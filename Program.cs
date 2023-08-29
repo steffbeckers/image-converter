@@ -12,7 +12,7 @@ command.SetHandler(async (context) =>
 
 	foreach (string image in images)
 	{
-		MagickImage magickImage = new MagickImage(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, image));
+		MagickImage magickImage = new MagickImage(Path.Combine(Directory.GetCurrentDirectory(), image));
 
 		magickImage.Crop(new MagickGeometry()
 		{
@@ -23,7 +23,7 @@ command.SetHandler(async (context) =>
 		});
 		magickImage.RePage();
 
-		string outputPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "output", image);
+		string outputPath = Path.Combine(Directory.GetCurrentDirectory(), "image-converter-output", image);
 		Directory.CreateDirectory(Path.GetDirectoryName(outputPath)!);
 
 		await magickImage.WriteAsync(outputPath);
