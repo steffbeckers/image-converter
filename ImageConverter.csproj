@@ -9,6 +9,7 @@
 		<PackAsTool>true</PackAsTool>
 		<TargetFramework>net7.0</TargetFramework>
 		<ToolCommandName>image-converter</ToolCommandName>
+		<Version>0.1.2</Version>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -18,6 +19,12 @@
 
 	<ItemGroup>
 		<None Include="README.md" Pack="true" PackagePath="\" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="images\*">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
 	</ItemGroup>
 
 </Project>

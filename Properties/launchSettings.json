@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "ImageConverter": {
+      "commandName": "Project",
+      "commandLineArgs": "images\\a4-scan.jpg"
+    }
+  }
+}
