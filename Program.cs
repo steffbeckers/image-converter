@@ -14,7 +14,14 @@ command.SetHandler(async (context) =>
 	{
 		MagickImage magickImage = new MagickImage(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, image));
 
-		magickImage.Crop(MagickGeometry.FromPageSize("A3"));
+		magickImage.Crop(new MagickGeometry()
+		{
+			// A4, 150dpi
+			Width = 1240,
+			Height = 1754,
+			IgnoreAspectRatio = true
+		});
+		magickImage.RePage();
 
 		string outputPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "output", image);
 		Directory.CreateDirectory(Path.GetDirectoryName(outputPath)!);
